@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -euo pipefail
+set -euo
 
 REPOSITORIES=(
 "https://github.com/Garuflax/cuis-testlint.git"
