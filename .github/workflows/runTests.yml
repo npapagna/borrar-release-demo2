@@ -10,7 +10,12 @@ jobs:
         uses: actions/checkout@v4
       - name: Build
         run: .github/workflows/fooo.sh
+      - name: Tag branch
+        run: |
+          git tag -f -a test -m "Release ${VERSION}."
+          git push -f origin test
       - name: Release
         uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
         with:
           files: .github/workflows/work/**/*
